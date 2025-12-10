@@ -1,0 +1,21 @@
+.actor {
+  margin-bottom: 30px;
+
+  img {
+    margin-bottom: 10px;
+    width: 138px;
+
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.55) 8px 8px 5px;
+    }
+  }
+
+  h4 {
+    font-size: 1em;
+  }
+
+  span {
+    font-size: 0.9em;
+    color: #666;
+  }
+}
