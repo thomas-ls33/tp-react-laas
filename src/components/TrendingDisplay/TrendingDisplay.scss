@@ -1,0 +1,23 @@
+.tendances-container {
+  width: 83%;
+  max-width: 1380px;
+  margin: 40px auto;
+}
+
+.title-filter {
+  display: flex;
+  align-items: center;
+
+  h2 {
+    margin-right: 20px;
+    font-size: 36px;
+    font-weight: 500;
+  }
+}
+
+.grid-tendances {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
