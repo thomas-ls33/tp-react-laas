@@ -1,9 +1,12 @@
-import "./NavBar.scss";
+import { Link } from "react-router-dom";
+import "./Navbar.scss";
 
 const Navbar = () => {
   return (
     <nav className="nav">
-      <i className="fas fa-film"></i>
+      <Link to="/">
+        <i className="fas fa-film"></i>
+      </Link>
       <ul>
         <li>
           <a>Films</a>

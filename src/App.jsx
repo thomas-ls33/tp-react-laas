@@ -10,21 +10,21 @@ import "./App.css";
 function App() {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route
           path="/"
           element={
             <>
-              <Navbar />
               <SearchBar />
               <TrendingDisplay />
               <SeriesDisplay />
-              <Footer />
             </>
           }
         />
         <Route path="/focus/:id" element={<FocusPage />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

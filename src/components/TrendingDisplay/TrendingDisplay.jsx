@@ -1,40 +1,55 @@
+import { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import MovieCard from "../MovieCard/MovieCard";
+import { getTrendingMovies, getImageUrl } from "../../api/api";
 import "./TrendingDisplay.scss";
 
 const TrendingDisplay = () => {
+  const [movies, setMovies] = useState([]);
+  const [sortBy, setSortBy] = useState("date");
+
+  useEffect(() => {
+    const fetchMovies = async () => {
+      const data = await getTrendingMovies();
+      setMovies(data);
+    };
+    fetchMovies();
+  }, []);
+
+  const sortedMovies = [...movies].sort((a, b) => {
+    if (sortBy === "date") {
+      return new Date(b.release_date) - new Date(a.release_date);
+    } else {
+      return a.title.localeCompare(b.title);
+    }
+  });
+
   return (
     <div className="tendances-container">
       <div className="title-filter">
         <h2>Tendances</h2>
-        <Button text="Par date" isActive={true} />
-        <Button text="Par nom" isActive={false} />
+        <Button
+          text="Par date"
+          isActive={sortBy === "date"}
+          onClick={() => setSortBy("date")}
+        />
+        <Button
+          text="Par nom"
+          isActive={sortBy === "name"}
+          onClick={() => setSortBy("name")}
+        />
       </div>
       <div className="grid-tendances">
-        <MovieCard
-          image="https://image.tmdb.org/t/p/w500/bjUWGw0Ao0qVWxagN3VCwBJHVo6.jpg"
-          score={77}
-          title="Zootopia 2"
-          date="26/11/2025"
-        />
-        <MovieCard
-          image="https://image.tmdb.org/t/p/w500/cVxVGwHce6xnW8UaVUggaPXbmoE.jpg"
-          score={86}
-          title="Stranger Things"
-          date="15/07/2016"
-        />
-        <MovieCard
-          image="https://image.tmdb.org/t/p/w500/bKLm1xS9DsODWB4i1SxTEvLXab9.jpg"
-          score={59}
-          title="Jay Kelly"
-          date="14/11/2025"
-        />
-        <MovieCard
-          image="https://image.tmdb.org/t/p/w500/ycC53SEDcY7YDOSrFqPQigxaCyx.jpg"
-          score={81}
-          title="IT: Welcome to Derry"
-          date="26/10/2025"
-        />
+        {sortedMovies.map((movie) => (
+          <MovieCard
+            key={movie.id}
+            id={movie.id}
+            image={getImageUrl(movie.poster_path)}
+            score={Math.round(movie.vote_average * 10)}
+            title={movie.title}
+            date={new Date(movie.release_date).toLocaleDateString("fr-FR")}
+          />
+        ))}
       </div>
     </div>
   );
