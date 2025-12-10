@@ -1,10 +1,14 @@
-import MainPage from "./components/MainPage/MainPage";
+import Navbar from "./components/Navbar/Navbar";
+import SearchBar from "./components/SearchBar/SearchBar";
+import Footer from "./components/Footer/Footer";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <MainPage />
+      <Navbar />
+      <SearchBar />
+      <Footer />
     </>
   );
 }
