@@ -1,0 +1,35 @@
+.score {
+  display: flex;
+  justify-content: flex-end;
+
+  p {
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    background-color: #032541;
+    border: solid 3px white;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.44) 0px 3px 8px;
+  }
+}
+
+.movie .score {
+  width: 220px;
+
+  p {
+    margin-top: -40px;
+  }
+}
+
+.banner .score {
+  margin-right: 20px;
+
+  p {
+    height: 63px;
+    width: 63px;
+    font-weight: 500;
+  }
+}

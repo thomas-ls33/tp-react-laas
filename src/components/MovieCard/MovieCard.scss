@@ -1,0 +1,22 @@
+.movie {
+  text-decoration: none;
+  color: black;
+  display: block;
+  margin-bottom: 20px;
+  cursor: pointer;
+  width: 220px;
+
+  img {
+    width: 220px;
+  }
+
+  h5 {
+    color: #032541;
+    font-size: 20px;
+  }
+
+  &:hover img {
+    transition: all 0.3s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.55) 8px 8px 5px;
+  }
+}

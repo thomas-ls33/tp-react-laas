@@ -1,0 +1,17 @@
+.casting {
+  width: 83%;
+  max-width: 1380px;
+  margin: 40px auto 100px;
+
+  h2 {
+    margin-bottom: 40px;
+    font-size: 36px;
+    font-weight: 400;
+  }
+
+  .actors {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
